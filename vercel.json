@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api"
+    }
+  ],
+  "env": {
+    "SMTP_HOST": "smtp.resend.com",
+    "SMTP_PORT": "465",
+    "SMTP_USER": "resend",
+    "SMTP_PASS": "re_2jYPxoRr_EbEzQgmLrVe4ngqW4Y3cfjvR",
+    "ADMIN_EMAIL": "admin@gerardbutlerofficial.com",
+    "FROM_EMAIL": "noreply@gerardbutlerofficial.com"
+  }
+}
