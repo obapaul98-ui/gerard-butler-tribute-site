@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Films | Gerard Butler</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Trailer Modal */
+    #trailer-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #trailer-modal.active { display: flex; }
+    #trailer-modal iframe {
+      width: min(95vw, 1100px);
+      aspect-ratio: 16 / 9;
+      height: auto;
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+    }
+    #trailer-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    #trailer-close:hover { opacity: 1; }
+    #trailer-title {
+      color: white;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 22px;
+      margin-bottom: 24px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <!-- TRAILER MODAL -->
+  <div id="trailer-modal">
+    <button id="trailer-close" onclick="closeTrailer()">&times;</button>
+    <div id="trailer-title"></div>
+    <iframe id="trailer-iframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+  </div>
+  <nav class="nav">
+    <a href="/" class="nav-brand">★ Gerard Butler</a>
+    <div class="nav-links">
+      <a href="about">About</a>
+      <a href="films" >Films</a>
+      <a href="reels">Reels</a>
+      <a href="gallery">Gallery</a>
+      <a href="news">News</a>
+      <a href="charity">Charity</a>
+      <a href="fanclub">Fanclub</a>
+    </div>
+    <div class="hamburger">☰</div>
+  </nav>
+
+  <div class="page-header">
+    <h1 class="display-font">FILMOGRAPHY</h1>
+  </div>
+
+  <section class="section film-section">
+    <div class="eyebrow" style="margin-bottom: 60px; text-align: center;">// THE MOVIES</div>
+    <div class="film-grid">
+      <!-- 2025 -->
+      <div class="film-card" data-trailer="22w7z_lT6YM" data-title="How to Train Your Dragon (2025)">
+        <div class="poster"><img src="img/poster_httyd_live_action.jpg" alt="HTTYD"></div>
+        <div class="film-meta"><span class="film-eyebrow">2025 / ADVENTURE</span><h4>HOW TO TRAIN YOUR DRAGON</h4><p>Stoick the Vast</p></div>
+      </div>
+      <div class="film-card" data-trailer="1kmjAnvFw3I" data-title="Den of Thieves 2: Pantera">
+        <div class="poster"><img src="img/poster_den_of_thieves_2.jpg" alt="Den of Thieves 2"></div>
+        <div class="film-meta"><span class="film-eyebrow">2024 / ACTION</span><h4>DEN OF THIEVES 2</h4><p>Big Nick O'Brien</p></div>
+      </div>
+      <!-- 2023 -->
+      <div class="film-card" data-trailer="M25zXBIUVr0" data-title="Plane (2023)">
+        <div class="poster"><img src="img/poster_plane.jpg" alt="Plane"></div>
+        <div class="film-meta"><span class="film-eyebrow">2023 / ACTION</span><h4>PLANE</h4><p>Brodie Torrance</p></div>
+      </div>
+      <div class="film-card" data-trailer="nNjfA8V6xkQ" data-title="Kandahar">
+        <div class="poster"><img src="img/poster_kandahar.jpg" alt="Kandahar"></div>
+        <div class="film-meta"><span class="film-eyebrow">2023 / ACTION</span><h4>KANDAHAR</h4><p>Tom Harris</p></div>
+      </div>
+      <!-- 2022 -->
+      <div class="film-card" data-trailer="5Gutb4hc5r4" data-title="Last Seen Alive">
+        <div class="poster"><img src="img/poster_last_seen_alive.jpg" alt="Last Seen Alive"></div>
+        <div class="film-meta"><span class="film-eyebrow">2022 / THRILLER</span><h4>LAST SEEN ALIVE</h4><p>Will Spann</p></div>
+      </div>
+      <!-- 2021 -->
+      <div class="film-card" data-trailer="ezHiQwwzEjU" data-title="Copshop">
+        <div class="poster"><img src="img/poster_copshop.jpg" alt="Copshop"></div>
+        <div class="film-meta"><span class="film-eyebrow">2021 / CRIME</span><h4>COPSHOP</h4><p>Bob Viddick</p></div>
+      </div>
+      <!-- 2020 -->
+      <div class="film-card" data-trailer="vz-gdEL_ae8" data-title="Greenland (2020)">
+        <div class="poster"><img src="img/poster_greenland.jpg" alt="Greenland"></div>
+        <div class="film-meta"><span class="film-eyebrow">2020 / THRILLER</span><h4>GREENLAND</h4><p>John Garrity</p></div>
+      </div>
+      <!-- 2019 -->
+      <div class="film-card" data-trailer="isVtXH7n9lI" data-title="Angel Has Fallen">
+        <div class="poster"><img src="img/poster_angel_has_fallen.jpg" alt="Angel Has Fallen"></div>
+        <div class="film-meta"><span class="film-eyebrow">2019 / ACTION</span><h4>ANGEL HAS FALLEN</h4><p>Mike Banning</p></div>
+      </div>
+      <div class="film-card" data-trailer="SkcucKDrbOI" data-title="HTTYD: The Hidden World">
+        <div class="poster"><img src="img/poster_httyd_animated.jpg" alt="HTTYD 3"></div>
+        <div class="film-meta"><span class="film-eyebrow">2019 / ANIMATION</span><h4>HTTYD: THE HIDDEN WORLD</h4><p>Stoick the Vast (Voice)</p></div>
+      </div>
+      <!-- 2018 -->
+      <div class="film-card" data-trailer="FKd_ks0rdAM" data-title="Den of Thieves">
+        <div class="poster"><img src="img/poster_den_of_thieves.jpg" alt="Den of Thieves"></div>
+        <div class="film-meta"><span class="film-eyebrow">2018 / CRIME</span><h4>DEN OF THIEVES</h4><p>Big Nick O'Brien</p></div>
+      </div>
+      <div class="film-card" data-trailer="mnP_z3qXDCQ" data-title="Hunter Killer">
+        <div class="poster"><img src="img/poster_hunter_killer.jpg" alt="Hunter Killer"></div>
+        <div class="film-meta"><span class="film-eyebrow">2018 / ACTION</span><h4>HUNTER KILLER</h4><p>Captain Joe Glass</p></div>
+      </div>
+      <div class="film-card" data-trailer="RyFlfN4dD14">
+        <div class="poster"><img src="img/poster_vanishing.jpg" alt="The Vanishing"></div>
+        <div class="film-meta"><span class="film-eyebrow">2018 / THRILLER</span><h4>THE VANISHING</h4><p>Donald MacLeod</p></div>
+      </div>
+      <!-- 2017 -->
+      <div class="film-card" data-trailer="raUghGHrSTg">
+        <div class="poster"><img src="img/poster_geostorm.jpg" alt="Geostorm"></div>
+        <div class="film-meta"><span class="film-eyebrow">2017 / SCI-FI</span><h4>GEOSTORM</h4><p>Jake Lawson</p></div>
+      </div>
+      <!-- 2016 -->
+      <div class="film-card" data-trailer="3AsOdX7NcJs" data-title="London Has Fallen">
+        <div class="poster"><img src="img/poster_london_has_fallen.jpg" alt="London Has Fallen"></div>
+        <div class="film-meta"><span class="film-eyebrow">2016 / ACTION</span><h4>LONDON HAS FALLEN</h4><p>Mike Banning</p></div>
+      </div>
+      <div class="film-card" data-trailer="IJBnK2wNQSo">
+        <div class="poster"><img src="img/poster_gods_of_egypt.jpg" alt="Gods of Egypt"></div>
+        <div class="film-meta"><span class="film-eyebrow">2016 / FANTASY</span><h4>GODS OF EGYPT</h4><p>Set</p></div>
+      </div>
+      <div class="film-card" data-trailer="V953fHEqous">
+        <div class="poster"><img src="img/poster_a_family_man.jpg" alt="A Family Man"></div>
+        <div class="film-meta"><span class="film-eyebrow">2016 / DRAMA</span><h4>A FAMILY MAN</h4><p>Dane Jensen</p></div>
+      </div>
+      <!-- 2014 -->
+      <div class="film-card" data-trailer="jGEERBDelH8">
+        <div class="poster"><img src="img/poster_300_rise.jpg" alt="300 Rise of an Empire"></div>
+        <div class="film-meta"><span class="film-eyebrow">2014 / ACTION</span><h4>300: RISE OF AN EMPIRE</h4><p>King Leonidas (cameo)</p></div>
+      </div>
+      <!-- 2013 -->
+      <div class="film-card" data-trailer="ar-IaAx7s8k" data-title="Olympus Has Fallen">
+        <div class="poster"><img src="img/poster_olympus_has_fallen.jpg" alt="Olympus Has Fallen"></div>
+        <div class="film-meta"><span class="film-eyebrow">2013 / ACTION</span><h4>OLYMPUS HAS FALLEN</h4><p>Mike Banning</p></div>
+      </div>
+      <!-- 2012 -->
+      <div class="film-card" data-trailer="vkwCQH6IVhM">
+        <div class="poster"><img src="img/poster_chasing_mavericks.jpg" alt="Chasing Mavericks"></div>
+        <div class="film-meta"><span class="film-eyebrow">2012 / DRAMA</span><h4>CHASING MAVERICKS</h4><p>Frosty Hesson</p></div>
+      </div>
+      <!-- 2011 -->
+      <div class="film-card" data-trailer="47yl-ySEw3A">
+        <div class="poster"><img src="img/poster_machine_gun_preacher.jpg" alt="Machine Gun Preacher"></div>
+        <div class="film-meta"><span class="film-eyebrow">2011 / DRAMA</span><h4>MACHINE GUN PREACHER</h4><p>Sam Childers</p></div>
+      </div>
+      <!-- 2010 -->
+      <div class="film-card" data-trailer="tdHS-jy9lNs">
+        <div class="poster"><img src="img/poster_the_bounty_hunter.jpg" alt="The Bounty Hunter"></div>
+        <div class="film-meta"><span class="film-eyebrow">2010 / ROM-COM</span><h4>THE BOUNTY HUNTER</h4><p>Milo Boyd</p></div>
+      </div>
+      <div class="film-card" data-trailer="2AKsAxrhqgM">
+        <div class="poster"><img src="img/poster_httyd_animated.jpg" alt="HTTYD"></div>
+        <div class="film-meta"><span class="film-eyebrow">2010 / ANIMATION</span><h4>HOW TO TRAIN YOUR DRAGON</h4><p>Stoick the Vast (Voice)</p></div>
+      </div>
+      <!-- 2009 -->
+      <div class="film-card" data-trailer="LX6kVRsdXW4">
+        <div class="poster"><img src="img/poster_law_abiding_citizen.jpg" alt="Law Abiding Citizen"></div>
+        <div class="film-meta"><span class="film-eyebrow">2009 / THRILLER</span><h4>LAW ABIDING CITIZEN</h4><p>Clyde Shelton</p></div>
+      </div>
+      <div class="film-card" data-trailer="P2g94xQmtHw">
+        <div class="poster"><img src="img/poster_gamer.jpg" alt="Gamer"></div>
+        <div class="film-meta"><span class="film-eyebrow">2009 / ACTION</span><h4>GAMER</h4><p>Kable</p></div>
+      </div>
+      <div class="film-card" data-trailer="DvsZtGxsvV0">
+        <div class="poster"><img src="img/poster_ugly_truth.jpg" alt="The Ugly Truth"></div>
+        <div class="film-meta"><span class="film-eyebrow">2009 / ROM-COM</span><h4>THE UGLY TRUTH</h4><p>Mike Chadway</p></div>
+      </div>
+      <!-- 2008 -->
+      <div class="film-card" data-trailer="QiQCdLIz3BY">
+        <div class="poster"><img src="img/poster_rocknrolla.jpg" alt="RocknRolla"></div>
+        <div class="film-meta"><span class="film-eyebrow">2008 / CRIME</span><h4>ROCKNROLLA</h4><p>One Two</p></div>
+      </div>
+      <div class="film-card" data-trailer="yVkrPH48k_I">
+        <div class="poster"><img src="img/poster_nims_island.jpg" alt="Nim's Island"></div>
+        <div class="film-meta"><span class="film-eyebrow">2008 / ADVENTURE</span><h4>NIM'S ISLAND</h4><p>Jack Rusoe / Alex Rover</p></div>
+      </div>
+      <!-- 2007 -->
+      <div class="film-card" data-trailer="UrIbxk7idYA" data-title="300">
+        <div class="poster"><img src="img/poster_300.jpg" alt="300"></div>
+        <div class="film-meta"><span class="film-eyebrow">2006 / ACTION</span><h4>300</h4><p>King Leonidas</p></div>
+      </div>
+      <div class="film-card" data-trailer="CZzW6_hR068">
+        <div class="poster"><img src="img/poster_ps_i_love_you.jpg" alt="P.S. I Love You"></div>
+        <div class="film-meta"><span class="film-eyebrow">2007 / ROMANCE</span><h4>P.S. I LOVE YOU</h4><p>Gerry Kennedy</p></div>
+      </div>
+      <!-- 2004 -->
+      <div class="film-card" data-trailer="N91AL8sAh9o">
+        <div class="poster"><img src="img/poster_phantom.jpg" alt="Phantom of the Opera"></div>
+        <div class="film-meta"><span class="film-eyebrow">2004 / MUSICAL</span><h4>PHANTOM OF THE OPERA</h4><p>The Phantom</p></div>
+      </div>
+      <div class="film-card" data-trailer="V-31l0eKBkU">
+        <div class="poster"><img src="img/poster_dear_frankie.jpg" alt="Dear Frankie"></div>
+        <div class="film-meta"><span class="film-eyebrow">2004 / DRAMA</span><h4>DEAR FRANKIE</h4><p>The Stranger</p></div>
+      </div>
+      <!-- 2003 -->
+      <div class="film-card" data-trailer="-0enc2VSiKE">
+        <div class="poster"><img src="img/poster_lara_croft2.jpg" alt="Lara Croft 2"></div>
+        <div class="film-meta"><span class="film-eyebrow">2003 / ACTION</span><h4>LARA CROFT: CRADLE OF LIFE</h4><p>Terry Sheridan</p></div>
+      </div>
+      <!-- 2002 -->
+      <div class="film-card" data-trailer="aUXQ2f3GAXA">
+        <div class="poster"><img src="img/poster_reign_of_fire.jpg" alt="Reign of Fire"></div>
+        <div class="film-meta"><span class="film-eyebrow">2002 / ACTION</span><h4>REIGN OF FIRE</h4><p>Creedy</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-section">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h2 class="display-font">★ Gerard Butler</h2>
+        <p>Actor. Producer. Leading man. Documenting the legendary career of Gerard Butler.</p>
+      </div>
+      <div class="footer-copy">
+        <span>&copy; 2026 Gerard Butler Fan Archive.</span>
+        <span>All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

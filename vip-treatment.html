@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIP Treatment | Gerard Butler</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .vip-hero {
+      text-align: center;
+      padding: 100px 20px 40px;
+    }
+    .exclusive-badge {
+      display: inline-block;
+      background: rgba(255, 59, 48, 0.1);
+      color: #ff3b30;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255, 59, 48, 0.2);
+    }
+    .section-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      color: var(--mint);
+      margin-bottom: 16px;
+    }
+    .vip-section {
+      max-width: 900px;
+      margin: 0 auto 70px auto;
+      padding: 0 20px;
+    }
+    .vip-section-desc {
+      font-size: 18px;
+      color: #ffffff;
+      opacity: 1;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .experience-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .exp-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 28px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .exp-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--mint);
+    }
+    .exp-card h4 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 18px;
+      color: var(--coral-1);
+      margin-bottom: 10px;
+    }
+    .exp-card p {
+      font-size: 15px;
+      color: #ffffff;
+      opacity: 1;
+      line-height: 1.6;
+    }
+    .artifact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .artifact-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 28px 22px;
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .artifact-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,200,100,0.4);
+    }
+    .artifact-icon {
+      font-size: 40px;
+      margin-bottom: 14px;
+    }
+    .artifact-card h4 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 16px;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .artifact-card p {
+      font-size: 14px;
+      color: #ffffff;
+      opacity: 1;
+      line-height: 1.5;
+    }
+    .members-only-banner {
+      max-width: 900px;
+      margin: 60px auto 80px auto;
+      padding: 48px 40px;
+      background: linear-gradient(135deg, rgba(180, 80, 255, 0.3) 0%, rgba(255, 100, 80, 0.3) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 28px;
+      text-align: center;
+    }
+    .members-only-banner h2 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(24px, 4vw, 40px);
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .members-only-banner p {
+      font-size: 18px;
+      color: #ffffff;
+      opacity: 1;
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto 32px auto;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+    }
+    .divider {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(to right, var(--purple-1), var(--coral-1));
+      border-radius: 2px;
+      margin: 0 auto 40px auto;
+    }
+    @media (max-width: 768px) {
+      .experience-cards, .artifact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-brand">★ Gerard Butler</a>
+    <div class="nav-links">
+      <a href="about">About</a>
+      <a href="films">Films</a>
+      <a href="reels">Reels</a>
+      <a href="gallery">Gallery</a>
+      <a href="news">News</a>
+      <a href="charity">Charity</a>
+      <a href="fanclub" >Fanclub</a>
+    </div>
+    <div class="hamburger">☰</div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="vip-hero">
+    <div class="eyebrow" style="margin-bottom: 20px;">// EXCLUSIVE ACCESS</div>
+    <h1 class="display-font" style="font-size: clamp(40px, 6vw, 80px); color: var(--mint);">VIP TREATMENT</h1>
+    <p style="max-width: 600px; margin: 24px auto 0; font-size: 20px; opacity: 0.8; line-height: 1.6;">
+      Step inside the world of Gerard Butler like never before. Exclusive tours, behind-the-scenes access, and rare artifacts — reserved for those who truly belong.
+    </p>
+    <div style="margin-top: 32px;">
+      <span class="exclusive-badge">★ Exclusively for Fanclub Members ★</span>
+    </div>
+  </div>
+
+  <!-- Museum Tour -->
+  <div class="vip-section">
+    <div class="divider"></div>
+    <h2 class="section-title">🏛️ The Gerard Butler Museum — Opening Soon</h2>
+    <p class="vip-section-desc">
+      Gerard Butler's dedicated fan museum is opening its doors for the very first time — and VIP members get early access before the public. Walk through curated exhibition halls that chronicle his career from the Glasgow stage to Hollywood blockbusters. 
+    </p>
+    <div class="experience-cards">
+      <div class="exp-card">
+        <img src="img/hall_rise.png" alt="Gallery Hall A: The Rise" style="width:100%; height:220px; object-fit:cover; border-radius:12px; margin-bottom:16px;">
+        <h4>Gallery Hall A: The Rise</h4>
+        <p>Discover early career memorabilia, original casting call documents, and behind-the-scenes snapshots from his breakthrough in Dracula 2000 and Lara Croft: Tomb Raider.</p>
+      </div>
+      <div class="exp-card">
+        <img src="img/hall_300.png" alt="Gallery Hall B: The Legend of 300" style="width:100%; height:220px; object-fit:cover; border-radius:12px; margin-bottom:16px;">
+        <h4>Gallery Hall B: The Legend of 300</h4>
+        <p>The centrepiece of the museum — life-size recreations of the Battle of Thermopylae set, original screen-used props, and the iconic Spartan shield and spear.</p>
+      </div>
+      <div class="exp-card">
+        <img src="img/hall_phantom.png" alt="Gallery Hall C: The Phantom" style="width:100%; height:220px; object-fit:cover; border-radius:12px; margin-bottom:16px;">
+        <h4>Gallery Hall C: The Phantom</h4>
+        <p>A fully recreated Phantom of the Opera set piece, featuring original costumes, the iconic white mask worn by Butler, and music from the production.</p>
+      </div>
+      <div class="exp-card">
+        <img src="img/hall_action.png" alt="Gallery Hall D: The Action Hero" style="width:100%; height:220px; object-fit:cover; border-radius:12px; margin-bottom:16px;">
+        <h4>Gallery Hall D: The Action Hero</h4>
+        <p>From Olympus Has Fallen to Angel Has Fallen, Den of Thieves and Plane — celebrate every action role with authentic props and production stills.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Home Tour -->
+  <div class="vip-section">
+    <div class="divider"></div>
+    <h2 class="section-title">🏡 Private Tour of Gerard Butler's Home</h2>
+    <p class="vip-section-desc">
+      An unbelievable once-in-a-lifetime opportunity. Selected VIP members will receive an exclusive guided tour of Gerard Butler's private residence. See his personal library, home gym, art collection, and the private screening room where he watches his own films before release.
+    </p>
+    <div class="experience-cards">
+      <div class="exp-card">
+        <h4>The Private Screening Room</h4>
+        <p>Experience films the way Gerard does — in his personal in-home cinema. VIP guests will watch an exclusive unreleased clip together with him.</p>
+      </div>
+      <div class="exp-card">
+        <h4>The Trophy Room</h4>
+        <p>Awards, signed scripts, framed posters, personal notes from directors and co-stars — all displayed in a room he calls his "Hall of Memories."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wardrobe Tour -->
+  <div class="vip-section">
+    <div class="divider"></div>
+    <h2 class="section-title">👔 The Movie Wardrobe Collection</h2>
+    <p class="vip-section-desc">
+      Walk the aisles of an extensive archive of every major costume Gerard Butler has worn across his career. Pieces have been preserved and catalogued from these films:
+    </p>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px;">
+      <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 50px; font-size: 15px; color: #ffffff; font-weight: 600;">300 (2006)</span>
+      <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 50px; font-size: 15px; color: #ffffff; font-weight: 600;">The Phantom of the Opera (2004)</span>
+      <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 50px; font-size: 15px; color: #ffffff; font-weight: 600;">P.S. I Love You (2007)</span>
+      <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 50px; font-size: 15px; color: #ffffff; font-weight: 600;">Olympus Has Fallen (2013)</span>
+      <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 50px; font-size: 15px; color: #ffffff; font-weight: 600;">London Has Fallen (2016)</span>
+      <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 50px; font-size: 15px; color: #ffffff; font-weight: 600;">Angel Has Fallen (2019)</span>
+      <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 50px; font-size: 15px; color: #ffffff; font-weight: 600;">Den of Thieves (2018)</span>
+      <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 50px; font-size: 15px; color: #ffffff; font-weight: 600;">Plane (2023)</span>
+      <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 50px; font-size: 15px; color: #ffffff; font-weight: 600;">Greenland (2020)</span>
+      <span style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); padding: 8px 18px; border-radius: 50px; font-size: 15px; color: #ffffff; font-weight: 600;">The Ugly Truth (2009)</span>
+    </div>
+  </div>
+
+  <!-- Museum-Worthy Artifacts -->
+  <div class="vip-section">
+    <div class="divider"></div>
+    <h2 class="section-title">🏆 Museum-Worthy Artifacts</h2>
+    <p class="vip-section-desc">
+      Based on collector reviews, auction records, and fan community consensus — these are the most prized, museum-worthy artifacts associated with Gerard Butler's career:
+    </p>
+    <img src="img/spartan_room.png" alt="Gerard Butler Spartan Museum Room" style="width: 100%; border-radius: 24px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+    <div class="artifact-grid">
+      <div class="artifact-card">
+        <div class="artifact-icon">⚔️</div>
+        <h4>The Spartan Helmet — 300</h4>
+        <p>The most sought-after prop in Butler's career. Hero-version helmets from close-up shots feature battle distress marks and custom internal padding. Auction value: $25,000+</p>
+      </div>
+      <div class="artifact-card">
+        <div class="artifact-icon">🎭</div>
+        <h4>The Phantom's White Mask</h4>
+        <p>Considered one of cinema's most iconic masks. The screen-used version is one of the most recognized fan memorabilia items and frequently featured in museum collections.</p>
+      </div>
+      <div class="artifact-card">
+        <div class="artifact-icon">🛡️</div>
+        <h4>Spartan Shield & Spear — 300</h4>
+        <p>The full Battle of Thermopylae combat set. Fans consistently rate this as the most impressive piece of cinematic armory from Butler's entire catalogue.</p>
+      </div>
+      <div class="artifact-card">
+        <div class="artifact-icon">💌</div>
+        <h4>P.S. I Love You Letters</h4>
+        <p>Original prop love letters written by Gerry Kennedy (Butler). These emotionally charged pieces command high prices due to the film's overwhelming sentimental impact on fans.</p>
+      </div>
+      <div class="artifact-card">
+        <div class="artifact-icon">🔫</div>
+        <h4>Secret Service Badge — Olympus Has Fallen</h4>
+        <p>The screen-used Secret Service ID and badge worn by Mike Banning. Among the most popular action prop collectibles from the Has Fallen franchise.</p>
+      </div>
+      <div class="artifact-card">
+        <div class="artifact-icon">🎸</div>
+        <h4>Scottish Tartan Scarf — Craig McGinley Collaboration</h4>
+        <p>Worn during Butler's celebrated Scotland charity appearances, this piece carries deep cultural significance for Scottish-heritage fans worldwide.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Members Only Banner -->
+  <div class="members-only-banner">
+    <div style="font-size: 48px; margin-bottom: 24px;">🔐</div>
+    <h2>This Experience is Exclusively for Members</h2>
+    <p>
+      Every single element of the VIP Treatment package — from the museum early access to the private home tour and wardrobe archive — is available <strong>only to verified Gerard Butler Fanclub members</strong>. Join the fanclub today and unlock access to a world most fans can only dream of.
+    </p>
+    <a href="/fanclub#join" class="btn-primary" style="text-decoration: none; display: inline-block;">Become a Member</a>
+  </div>
+
+  <footer class="footer-section">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h2 class="display-font">&#9733; Gerard Butler</h2>
+        <p>Actor. Producer. Leading man. Documenting the legendary career of Gerard Butler.</p>
+      </div>
+      <div class="footer-copy">
+        <span>&copy; 2026 Gerard Butler Fan Archive.</span>
+        <span>All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

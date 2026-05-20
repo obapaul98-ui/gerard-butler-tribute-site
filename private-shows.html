@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Shows | Gerard Butler</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .shows-hero {
+      text-align: center;
+      padding: 100px 20px 40px;
+    }
+    .shows-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      max-width: 1000px;
+      margin: 0 auto 80px auto;
+      padding: 0 20px;
+    }
+    .show-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 24px;
+      padding: 40px 32px;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .show-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255,255,255,0.2);
+    }
+    .show-date {
+      color: var(--mint);
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .show-location {
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    .show-venue {
+      font-size: 16px;
+      color: #ffffff;
+      opacity: 1;
+      line-height: 1.6;
+    }
+    .exclusive-badge {
+      display: inline-block;
+      background: rgba(255, 59, 48, 0.1);
+      color: #ff3b30;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255, 59, 48, 0.2);
+    }
+    .form-group label {
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-brand">★ Gerard Butler</a>
+    <div class="nav-links">
+      <a href="about">About</a>
+      <a href="films">Films</a>
+      <a href="reels">Reels</a>
+      <a href="gallery">Gallery</a>
+      <a href="news">News</a>
+      <a href="charity">Charity</a>
+      <a href="fanclub" >Fanclub</a>
+    </div>
+    <div class="hamburger">☰</div>
+  </nav>
+
+  <div class="shows-hero">
+    <div class="eyebrow" style="margin-bottom: 20px;">// VIP ACCESS ONLY</div>
+    <h1 class="display-font" style="font-size: clamp(40px, 6vw, 80px); color: var(--mint);">PRIVATE SHOWS</h1>
+    <p style="max-width: 600px; margin: 24px auto 0; font-size: 20px; color: #ffffff; line-height: 1.6;">
+      Get early access to unreleased films. Join Gerard Butler and a select group of fans for extremely limited private screenings before global release dates.
+    </p>
+    <div style="margin-top: 32px;">
+      <span class="exclusive-badge">★ Exclusively for Fanclub Members ★</span>
+    </div>
+  </div>
+
+  <div class="shows-grid">
+    <div class="show-card">
+      <div class="show-date">June 15, 2026</div>
+      <div class="show-location">Los Angeles, California</div>
+      <div class="show-venue">Directors Guild of America (DGA) Theater Complex<br><br>Features a 30-minute post-screening Q&A with Gerard Butler.</div>
+    </div>
+    
+    <div class="show-card">
+      <div class="show-date">August 22, 2026</div>
+      <div class="show-location">New York City, New York</div>
+      <div class="show-venue">The Paris Theater<br><br>Exclusive black-tie screening event in Manhattan's historic cinema.</div>
+    </div>
+
+    <div class="show-card">
+      <div class="show-date">October 10, 2026</div>
+      <div class="show-location">Detroit, Michigan</div>
+      <div class="show-venue">Fox Theatre Detroit<br><br>Premium VIP balcony seating with complimentary drinks and merchandise.</div>
+    </div>
+  </div>
+
+  <div id="join" style="max-width: 600px; margin: 0 auto 80px auto; background: rgba(0,0,0,0.5); padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1);">
+    <h2 class="display-font" style="margin-bottom: 32px; font-size: 32px; color: var(--mint); text-align: center;">Apply for Tickets</h2>
+    <form action="mailto:management@gerardbutlerfanclub.test" method="GET" enctype="text/plain">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="Jane Doe">
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="jane@example.com">
+      </div>
+      <div class="form-group">
+        <label for="fan_id">Fan Card ID</label>
+        <input type="text" id="fan_id" name="fan_id" required placeholder="e.g. GB-12345">
+      </div>
+      <div class="form-group" style="display: none;">
+        <label for="tier">Requested Tier</label>
+        <input type="text" id="tier" name="tier" value="Private Shows" readonly>
+      </div>
+      <div class="form-group">
+        <label for="show_location">Which show are you applying for?</label>
+        <input type="text" id="show_location" name="show_location" required placeholder="e.g. Los Angeles, New York, Detroit">
+      </div>
+      <div class="form-group">
+        <label for="message">Why should you be selected for this private meeting?</label>
+        <textarea id="message" name="message" rows="4" required placeholder="Tell us about your fandom..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%; margin-top: 16px;">Request Invitation</button>
+    </form>
+  </div>
+
+  <footer class="footer-section">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h2 class="display-font">&#9733; Gerard Butler</h2>
+        <p>Actor. Producer. Leading man. Documenting the legendary career of Gerard Butler.</p>
+      </div>
+      <div class="footer-copy">
+        <span>&copy; 2026 Gerard Butler Fan Archive.</span>
+        <span>All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

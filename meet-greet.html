@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet & Greet | Gerard Butler</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .meet-hero {
+      text-align: center;
+      padding: 100px 20px 40px;
+    }
+    .fan-gallery-page {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
+    }
+    .fan-gallery-page img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .fan-gallery-page img:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .remarks-section {
+      max-width: 800px;
+      margin: 0 auto 80px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .remark-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 32px;
+      border-radius: 24px;
+      position: relative;
+    }
+    .remark-card::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 64px;
+      color: #ff3b30;
+      opacity: 0.4;
+      font-family: 'Archivo Black', sans-serif;
+    }
+    .remark-card p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+      color: #ffffff;
+    }
+    .remark-card span {
+      color: var(--mint);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      .remarks-section, .fan-gallery-page { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-brand">★ Gerard Butler</a>
+    <div class="nav-links">
+      <a href="about">About</a>
+      <a href="films">Films</a>
+      <a href="reels">Reels</a>
+      <a href="gallery">Gallery</a>
+      <a href="news">News</a>
+      <a href="charity">Charity</a>
+      <a href="fanclub" >Fanclub</a>
+    </div>
+    <div class="hamburger">☰</div>
+  </nav>
+
+  <div class="meet-hero">
+    <div class="eyebrow" style="margin-bottom: 20px;">// THE ULTIMATE EXPERIENCE</div>
+    <h1 class="display-font" style="font-size: clamp(40px, 6vw, 80px); color: var(--mint);">MEET & GREET</h1>
+    <p style="max-width: 600px; margin: 24px auto 0; font-size: 20px; opacity: 0.8; line-height: 1.6;">
+      Get exclusive backstage passes for upcoming premieres and events. Chat directly with the man himself. See what other fans have experienced.
+    </p>
+  </div>
+
+  <div class="fan-gallery-page">
+    <img src="fanclub assest/Gerard-Butler-with-Craig-mcginley-Gerard-butler-rob-wainwright-mark-Beaumont.jpg" alt="Gerard Butler with fans">
+    <img src="fanclub assest/Gerard-Butler-with-Rob-Wainwright-Dave-Zapple-Photography.webp" alt="Gerard Butler with fan">
+    <img src="fanclub assest/L-to-R-Rob-Wainwright-Mia-Noquet-Fundraiser-My-Name5-Doddie-and-Gerard-Butler-Credit_-Dave-Zapple-Photography-2.webp" alt="Gerard Butler meeting people">
+    <img src="fanclub assest/monacograndprix_19_base.jpg" alt="Gerard Butler at Monaco Grand Prix">
+  </div>
+
+  <div class="remarks-section">
+    <div class="remark-card">
+      <p>He was incredibly down to earth and spent 20 minutes just chatting with us about movies and Scotland. The most genuine guy in Hollywood!</p>
+      <span>— Sarah T., LA Premiere</span>
+    </div>
+    <div class="remark-card">
+      <p>I couldn't believe how kind he was. He took photos with everyone waiting outside and even joked around with my kids. An absolute legend.</p>
+      <span>— Mark R., London Event</span>
+    </div>
+    <div class="remark-card">
+      <p>Meeting him was a dream come true. He actually remembered my name from a Twitter interaction months ago. Truly cares about his fanbase.</p>
+      <span>— Jessica W., Comic Con</span>
+    </div>
+    <div class="remark-card">
+      <p>He stopped his entire security detail just to sign a poster for my disabled brother. A stand-up guy who never forgets where he came from.</p>
+      <span>— David L., NYC Screening</span>
+    </div>
+  </div>
+
+  <div id="join" style="max-width: 600px; margin: 0 auto 80px auto; background: rgba(0,0,0,0.5); padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1);">
+    <h2 class="display-font" style="margin-bottom: 32px; font-size: 32px; color: var(--mint); text-align: center;">Apply for Meet & Greet</h2>
+    <form action="mailto:management@gerardbutlerfanclub.test" method="GET" enctype="text/plain">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="Jane Doe">
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="jane@example.com">
+      </div>
+      <div class="form-group" style="display: none;">
+        <label for="tier">Requested Tier</label>
+        <input type="text" id="tier" name="tier" value="Meet & Greet" readonly>
+      </div>
+      <div class="form-group">
+        <label for="message">Why should you be selected?</label>
+        <textarea id="message" name="message" rows="4" required placeholder="Tell us about your fandom..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%; margin-top: 16px;">Send Application</button>
+    </form>
+  </div>
+
+  <footer class="footer-section">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h2 class="display-font">&#9733; Gerard Butler</h2>
+        <p>Actor. Producer. Leading man. Documenting the legendary career of Gerard Butler.</p>
+      </div>
+      <div class="footer-copy">
+        <span>&copy; 2026 Gerard Butler Fan Archive.</span>
+        <span>All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

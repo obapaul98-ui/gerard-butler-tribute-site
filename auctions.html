@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auctions | Gerard Butler</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .auction-hero {
+      text-align: center;
+      padding: 100px 20px 50px;
+    }
+    .exclusive-badge {
+      display: inline-block;
+      background: rgba(255, 59, 48, 0.1);
+      color: #ff3b30;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255, 59, 48, 0.2);
+    }
+    .auction-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      max-width: 1000px;
+      margin: 0 auto 80px auto;
+      padding: 0 20px;
+    }
+    .auction-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .auction-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--mint);
+    }
+    .auction-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+    .auction-card-body {
+      padding: 28px;
+    }
+    .auction-lot {
+      font-size: 12px;
+      color: var(--mint);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .auction-card-body h3 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 22px;
+      color: var(--coral-1);
+      margin-bottom: 10px;
+    }
+    .auction-card-body p {
+      font-size: 15px;
+      color: #ffffff;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .auction-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 18px;
+      margin-bottom: 20px;
+    }
+    .auction-meta-item label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .auction-meta-item span {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .auction-meta-item span.highlight {
+      color: var(--mint);
+    }
+    .bid-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: linear-gradient(135deg, var(--coral-1), #ff6b35);
+      color: #000000;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 15px;
+      padding: 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .bid-btn:hover { opacity: 0.85; }
+    .members-note {
+      max-width: 700px;
+      margin: 0 auto 80px auto;
+      padding: 36px 40px;
+      background: linear-gradient(135deg, rgba(180, 80, 255, 0.2) 0%, rgba(255, 100, 80, 0.2) 100%);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 24px;
+      text-align: center;
+    }
+    .members-note p {
+      font-size: 17px;
+      color: #ffffff;
+      line-height: 1.7;
+    }
+    @media (max-width: 768px) {
+      .auction-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-brand">★ Gerard Butler</a>
+    <div class="nav-links">
+      <a href="about">About</a>
+      <a href="films">Films</a>
+      <a href="reels">Reels</a>
+      <a href="gallery">Gallery</a>
+      <a href="news">News</a>
+      <a href="charity">Charity</a>
+      <a href="fanclub" >Fanclub</a>
+    </div>
+    <div class="hamburger">☰</div>
+  </nav>
+
+  <div class="auction-hero">
+    <div class="eyebrow" style="margin-bottom: 20px;">// EXCLUSIVE COLLECTION</div>
+    <h1 class="display-font" style="font-size: clamp(40px, 6vw, 80px); color: var(--mint);">AUCTIONS</h1>
+    <p style="max-width: 640px; margin: 24px auto 0; font-size: 20px; color: #ffffff; line-height: 1.6;">
+      Gerard Butler is parting ways with some of his most prized personal vehicles. Each piece is personally owned and carries the story of the man behind the legend. Bid now — these won't last.
+    </p>
+    <div style="margin-top: 28px;">
+      <span class="exclusive-badge">★ Open to Fanclub Members Only ★</span>
+    </div>
+  </div>
+
+  <div class="auction-grid">
+
+    <!-- LOT 1: Jaguar E-Type -->
+    <div class="auction-card">
+      <img src="img/auction_jaguar.png" alt="1971 Jaguar E-Type V12 Roadster">
+      <div class="auction-card-body">
+        <div class="auction-lot">Lot 01 — Classic Car</div>
+        <h3>1971 Jaguar E-Type V12 Roadster</h3>
+        <p>Gerard's crown jewel. This British Racing Green Jaguar E-Type — once described by Enzo Ferrari as "the most beautiful car ever made" — was a prized personal possession. Fully restored, with original V12 engine and cream leather interior.</p>
+        <div class="auction-meta">
+          <div class="auction-meta-item">
+            <label>Starting Bid</label>
+            <span class="highlight">$220,000</span>
+          </div>
+          <div class="auction-meta-item">
+            <label>Condition</label>
+            <span>Concours</span>
+          </div>
+          <div class="auction-meta-item">
+            <label>Year</label>
+            <span>1971</span>
+          </div>
+        </div>
+        <a href="/fanclub#join" class="bid-btn">Place a Bid →</a>
+      </div>
+    </div>
+
+    <!-- LOT 2: BMW Z8 -->
+    <div class="auction-card">
+      <img src="img/auction_bmw.png" alt="BMW Z8 Sports Car">
+      <div class="auction-card-body">
+        <div class="auction-lot">Lot 02 — Sports Car</div>
+        <h3>BMW Z8 — Daily Driver</h3>
+        <p>This is the car Gerard used as his personal everyday ride around Los Angeles. The BMW Z8 is one of the most iconic roadsters ever produced — only 5,703 were ever made worldwide. Low mileage, impeccably maintained, and garage-kept.</p>
+        <div class="auction-meta">
+          <div class="auction-meta-item">
+            <label>Starting Bid</label>
+            <span class="highlight">$185,000</span>
+          </div>
+          <div class="auction-meta-item">
+            <label>Condition</label>
+            <span>Excellent</span>
+          </div>
+          <div class="auction-meta-item">
+            <label>Year</label>
+            <span>2002</span>
+          </div>
+        </div>
+        <a href="/fanclub#join" class="bid-btn">Place a Bid →</a>
+      </div>
+    </div>
+
+    <!-- LOT 3: Harley-Davidson -->
+    <div class="auction-card">
+      <img src="img/auction_harley.png" alt="Harley-Davidson Dyna Wide Glide">
+      <div class="auction-card-body">
+        <div class="auction-lot">Lot 03 — Motorcycle</div>
+        <h3>Harley-Davidson Dyna Wide Glide</h3>
+        <p>Photographed multiple times cruising the Pacific Coast Highway, this Harley-Davidson is Gerard's signature ride. Custom matte black finish with chrome detailing. A true Californian icon, ridden by the man himself across thousands of miles.</p>
+        <div class="auction-meta">
+          <div class="auction-meta-item">
+            <label>Starting Bid</label>
+            <span class="highlight">$28,000</span>
+          </div>
+          <div class="auction-meta-item">
+            <label>Condition</label>
+            <span>Very Good</span>
+          </div>
+          <div class="auction-meta-item">
+            <label>Type</label>
+            <span>Cruiser</span>
+          </div>
+        </div>
+        <a href="/fanclub#join" class="bid-btn">Place a Bid →</a>
+      </div>
+    </div>
+
+    <!-- LOT 4: Triumph -->
+    <div class="auction-card">
+      <img src="img/auction_triumph.png" alt="Triumph Motorcycle">
+      <div class="auction-card-body">
+        <div class="auction-lot">Lot 04 — Motorcycle</div>
+        <h3>Triumph Bonneville — Malibu Rider</h3>
+        <p>Most recently spotted in July 2025, Gerard was riding this Triumph Bonneville through the hills of Malibu with his partner Morgan Brown. A timeless British icon with a personal story. This is your chance to own a piece of his everyday life.</p>
+        <div class="auction-meta">
+          <div class="auction-meta-item">
+            <label>Starting Bid</label>
+            <span class="highlight">$18,500</span>
+          </div>
+          <div class="auction-meta-item">
+            <label>Condition</label>
+            <span>Excellent</span>
+          </div>
+          <div class="auction-meta-item">
+            <label>Type</label>
+            <span>Classic</span>
+          </div>
+        </div>
+        <a href="/fanclub#join" class="bid-btn">Place a Bid →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Members Note -->
+  <div class="members-note">
+    <div style="font-size: 40px; margin-bottom: 16px;">🔐</div>
+    <p><strong style="color: var(--mint);">Fanclub Members Only.</strong> Bidding access is exclusively reserved for verified Gerard Butler Fanclub members. All bids are final and subject to verification. Winning bidders will be contacted directly by the management team to arrange secure collection or delivery.</p>
+  </div>
+
+  <footer class="footer-section">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h2 class="display-font">&#9733; Gerard Butler</h2>
+        <p>Actor. Producer. Leading man. Documenting the legendary career of Gerard Butler.</p>
+      </div>
+      <div class="footer-copy">
+        <span>&copy; 2026 Gerard Butler Fan Archive.</span>
+        <span>All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

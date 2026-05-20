@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity & Humanitarian Work | Gerard Butler</title>
+  <meta name="description" content="Gerard Butler's humanitarian work and charity missions across Africa and beyond.">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { color: #ffffff; }
+    .section { background: transparent !important; color: #ffffff !important; }
+
+    /* Hero Banner */
+    .charity-hero {
+      background: linear-gradient(135deg, rgba(197,245,146,0.12) 0%, rgba(255,138,91,0.1) 100%);
+      border: 1px solid rgba(197,245,146,0.15);
+      border-radius: var(--radius);
+      padding: 80px 60px;
+      text-align: center;
+    }
+    .charity-hero h1 { font-size: clamp(48px,7vw,96px); color: #ffffff; margin-bottom: 20px; }
+    .charity-hero p { font-size: 20px; color: rgba(255,255,255,0.8); max-width: 700px; margin: 0 auto 40px; line-height: 1.7; }
+    .charity-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(197,245,146,0.15); border: 1px solid var(--mint); border-radius: 30px; padding: 10px 24px; font-size: 14px; color: var(--mint); font-weight: 600; letter-spacing: 1px; }
+
+    /* Stats Row */
+    .charity-stats { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin: 40px 0; }
+    .c-stat { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 28px 40px; text-align: center; min-width: 160px; }
+    .c-stat h3 { font-family: 'Archivo Black', sans-serif; font-size: 40px; color: var(--mint); margin-bottom: 4px; }
+    .c-stat span { font-size: 13px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; }
+
+    /* Mission Statement */
+    .mission-block { background: rgba(255,255,255,0.03); border-left: 4px solid var(--mint); border-radius: 0 20px 20px 0; padding: 40px 48px; margin: 0 0 16px; }
+    .mission-block h2 { color: #ffffff; font-size: clamp(24px,3vw,40px); margin-bottom: 16px; }
+    .mission-block p { color: rgba(255,255,255,0.8); font-size: 18px; line-height: 1.8; }
+
+    /* Main Photo Grid — from gallery */
+    .charity-gallery-title { text-align: center; padding: 60px 60px 32px; }
+    .charity-gallery-title h2 { color: #ffffff; font-size: clamp(28px,4vw,52px); margin-bottom: 12px; }
+    .charity-gallery-title p { color: rgba(255,255,255,0.6); font-size: 17px; }
+
+    .charity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 0 60px 60px;
+    }
+    .charity-grid .c-img { border-radius: 20px; overflow: hidden; position: relative; }
+    .charity-grid .c-img.tall { grid-row: span 2; }
+    .charity-grid .c-img.wide { grid-column: span 2; }
+    .charity-grid img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 280px; transition: transform 0.4s ease; }
+    .charity-grid .c-img:hover img { transform: scale(1.04); }
+    .c-img .caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.75), transparent); padding: 20px 16px 14px; color: #ffffff; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; opacity: 0; transition: opacity 0.3s; }
+    .c-img:hover .caption { opacity: 1; }
+
+    /* Polaroid-style original photos */
+    .polaroid-charity { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; padding: 40px 60px 60px; }
+    .pc-item {
+      background: #ffffff;
+      padding: 12px 12px 40px;
+      border-radius: 4px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      transform: rotate(-1.5deg);
+      width: 220px;
+      transition: transform 0.3s;
+    }
+    .pc-item:nth-child(even) { transform: rotate(1.8deg); }
+    .pc-item:hover { transform: rotate(0deg) scale(1.05); z-index: 10; }
+    .pc-item img { width: 100%; height: 196px; object-fit: cover; display: block; }
+
+    /* Orgs section */
+    .orgs-section { padding: 60px; }
+    .orgs-section h2 { color: #ffffff; font-size: clamp(24px,3vw,44px); margin-bottom: 40px; text-align: center; }
+    .orgs-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+    .org-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 20px; }
+    .org-card h4 { color: var(--coral-1); font-family: 'Archivo Black', sans-serif; font-size: 16px; margin-bottom: 8px; }
+    .org-card p { color: rgba(255,255,255,0.7); font-size: 13px; line-height: 1.5; }
+    .org-icon { font-size: 28px; margin-bottom: 12px; }
+
+    @media(max-width:1024px){
+      .orgs-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media(max-width:768px){
+      .charity-grid { grid-template-columns: 1fr 1fr; padding: 0 16px 40px; }
+      .charity-grid .c-img.wide { grid-column: span 1; }
+      .charity-hero, .orgs-section { padding: 40px 24px; }
+      .polaroid-charity { padding: 20px; }
+      .charity-gallery-title { padding: 40px 24px 20px; }
+      .orgs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav-brand">★ Gerard Butler</a>
+    <div class="nav-links">
+      <a href="about">About</a>
+      <a href="films">Films</a>
+      <a href="reels">Reels</a>
+      <a href="gallery">Gallery</a>
+      <a href="news">News</a>
+      <a href="charity"  style="color: var(--mint);">Charity</a>
+      <a href="fanclub">Fanclub</a>
+    </div>
+    <div class="hamburger">☰</div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="section">
+    <div class="charity-hero">
+      <div class="eyebrow" style="margin-bottom: 20px;">// GIVING BACK</div>
+      <h1 class="display-font">Heart of<br>a Champion</h1>
+      <p>Beyond the screen, Gerard Butler has dedicated significant time and resources to humanitarian causes around the world — from crisis relief efforts to hands-on visits with children in Africa. His charitable work is a testament to the man behind the legend.</p>
+      <div class="charity-badge">❤️ &nbsp; HUMANITARIAN &nbsp; · &nbsp; PHILANTHROPIST &nbsp; · &nbsp; ADVOCATE</div>
+
+      <div class="charity-stats">
+        <div class="c-stat"><h3>10+</h3><span>Charities Supported</span></div>
+        <div class="c-stat"><h3>$M</h3><span>Funds Raised</span></div>
+        <div class="c-stat"><h3>5+</h3><span>Countries Visited</span></div>
+        <div class="c-stat"><h3>15+</h3><span>Years of Giving</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION STATEMENT -->
+  <div class="mission-block section">
+    <div class="eyebrow" style="margin-bottom:12px;">// HIS MISSION</div>
+    <h2 class="display-font">"It's not about the cameras. It's about the children."</h2>
+    <p>Gerard Butler has made multiple personal trips to Africa, working alongside aid organizations to deliver food, supplies, and — most importantly — hope to children in some of the continent's most underserved communities. He visits schools, holds children, plays with them in the dirt, and sits with families. No entourage, no publicist — just a man choosing to show up.</p>
+  </div>
+
+  <!-- ORIGINAL GALLERY PHOTOS -->
+  <div class="charity-gallery-title section">
+    <div class="eyebrow" style="margin-bottom: 12px;">// MOMENTS FROM THE FIELD</div>
+    <h2 class="display-font">Africa Visits</h2>
+    <p>Candid, unscripted, real — Gerard Butler among the people he fights for.</p>
+  </div>
+
+  <!-- MAIN PHOTO GRID (original charity photos + new downloads) -->
+  <div class="charity-grid section" style="padding-top:0;">
+    <!-- Fan selected charity photos -->
+    <div class="c-img wide">
+      <img src="img/img030.jpg" alt="Gerard Butler Charity Visit">
+      <div class="caption">With the children</div>
+    </div>
+    <div class="c-img">
+      <img src="img/img075.jpg" alt="Gerard Butler Charity Africa">
+      <div class="caption">Community Visit</div>
+    </div>
+    <div class="c-img">
+      <img src="img/img076.jpg" alt="Gerard Butler Local School">
+      <div class="caption">Local Support</div>
+    </div>
+    <div class="c-img">
+      <img src="img/img077.jpg" alt="Gerard Butler Humanitarian">
+      <div class="caption">Hands on Work</div>
+    </div>
+    <div class="c-img">
+      <img src="img/img078.jpg" alt="Gerard Butler Helping">
+      <div class="caption">Giving Back</div>
+    </div>
+  </div>
+
+  <!-- ORGANIZATIONS -->
+  <section class="section orgs-section">
+    <div class="eyebrow" style="margin-bottom:16px; text-align:center;">// ORGANIZATIONS HE SUPPORTS</div>
+    <h2 class="display-font">Causes & Charities</h2>
+    <div class="orgs-grid">
+      <div class="org-card">
+        <div class="org-icon">🌍</div>
+        <h4>Direct Relief</h4>
+        <p>Gerard has been a long-standing supporter of Direct Relief, which provides medical aid and humanitarian assistance in disaster zones across Africa and beyond.</p>
+      </div>
+      <div class="org-card">
+        <div class="org-icon">👶</div>
+        <h4>Children's Defense Fund</h4>
+        <p>Advocating for children's rights and welfare, Butler has actively fundraised and attended events supporting the Children's Defense Fund over many years.</p>
+      </div>
+      <div class="org-card">
+        <div class="org-icon">🏥</div>
+        <h4>Declare Yourself</h4>
+        <p>Using his platform to encourage civic participation and youth engagement in social causes across America and internationally.</p>
+      </div>
+      <div class="org-card">
+        <div class="org-icon">🎗️</div>
+        <h4>Haiti Relief Efforts</h4>
+        <p>Following the devastating 2010 Haiti earthquake, Butler was among the first Hollywood voices to rally support and organize fundraising relief missions.</p>
+      </div>
+      <div class="org-card">
+        <div class="org-icon">📚</div>
+        <h4>Africa Education Programs</h4>
+        <p>Hands-on visits to African schools to bring supplies, meals, and — most importantly — personal connection and encouragement to students.</p>
+      </div>
+      <div class="org-card">
+        <div class="org-icon">🤝</div>
+        <h4>Machine Gun Preacher Foundation</h4>
+        <p>Inspired by his role as Sam Childers, Butler has supported the real-life Angel's Children's Home in South Sudan — an orphanage saving children from conflict zones.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-section">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h2 class="display-font">&#9733; Gerard Butler</h2>
+        <p>Actor. Producer. Leading man. Documenting the legendary career of Gerard Butler.</p>
+      </div>
+      <div class="footer-copy">
+        <span>&copy; 2026 Gerard Butler Fan Archive.</span>
+        <span>All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
