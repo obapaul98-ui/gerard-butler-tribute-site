@@ -122,6 +122,48 @@ def handle_verification():
         print(f"Error handling verification: {e}")
         return jsonify({"error": "Internal server error"}), 500
 
+@app.route("/api/admin/set-poster", methods=["POST"])
+def handle_set_poster():
+    try:
+        data = request.json
+        source = data.get("source", "")
+        target = data.get("target", "poster_greenland.jpg")
+        
+        import os
+        import shutil
+        
+        allowed_sources = [
+            "poster_greenland.jpg",
+            "poster_greenland_migration.jpg",
+            "user_shot_1.png",
+            "user_shot_2.png",
+            "user_shot_3.png",
+            "user_shot_4.png"
+        ]
+        
+        if source not in allowed_sources:
+            return jsonify({"error": "Invalid source image"}), 400
+            
+        if target != "poster_greenland.jpg":
+            return jsonify({"error": "Invalid target"}), 400
+            
+        img_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "img"))
+        source_path = os.path.join(img_dir, source)
+        target_path = os.path.join(img_dir, target)
+        
+        if not os.path.exists(source_path):
+            return jsonify({"error": f"Source image {source} not found"}), 404
+            
+        shutil.copyfile(source_path, target_path)
+        
+        return jsonify({
+            "success": True,
+            "message": f"Poster successfully updated to {source}!"
+        }), 200
+    except Exception as e:
+        print(f"Error swapping poster: {e}")
+        return jsonify({"error": str(e)}), 500
+
 @app.route("/health", methods=["GET"])
 def healthcheck():
     return jsonify({"status": "ok"})

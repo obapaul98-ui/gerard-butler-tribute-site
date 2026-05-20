@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greenland Poster Comparison & Admin Control</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #0a0c10;
+      --card-bg: rgba(18, 22, 32, 0.65);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent-gold: #f59e0b;
+      --accent-gold-glow: rgba(245, 158, 11, 0.4);
+      --accent-green: #10b981;
+      --accent-green-glow: rgba(16, 185, 129, 0.35);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(245, 158, 11, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+      background-attachment: fixed;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header styling */
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    .eyebrow {
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      border-radius: 50px;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #ffffff 40%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+
+    .header-desc {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    /* Explanation Section */
+    .qa-section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 50px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .qa-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .qa-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .qa-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .qa-card h3::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 20px;
+      background: var(--accent-gold);
+      border-radius: 3px;
+    }
+
+    .qa-card p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .qa-card strong {
+      color: #ffffff;
+    }
+
+    /* Main Poster Comparison Area */
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: center;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .section-title span {
+      height: 2px;
+      width: 60px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold));
+    }
+
+    .section-title span:last-child {
+      background: linear-gradient(90deg, var(--accent-gold), transparent);
+    }
+
+    /* Poster Grid */
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+    }
+
+    .poster-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .poster-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      border: 2px solid transparent;
+      pointer-events: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .poster-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .poster-card.active {
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: 0 0 30px var(--accent-green-glow);
+    }
+
+    .poster-card.active::after {
+      border-color: var(--accent-green);
+    }
+
+    .poster-img-container {
+      position: relative;
+      aspect-ratio: 2 / 3;
+      overflow: hidden;
+      background: #111319;
+    }
+
+    .poster-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .poster-card:hover .poster-img-container img {
+      transform: scale(1.05);
+    }
+
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .badge-active {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid var(--accent-green);
+      color: #34d399;
+    }
+
+    .badge-source {
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid var(--accent-gold);
+      color: #fbbf24;
+    }
+
+    .badge-file {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    .poster-details {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .poster-details h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #ffffff;
+    }
+
+    .poster-details .meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-family: 'Outfit', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .poster-details .file-path {
+      font-family: monospace;
+      font-size: 11px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 6px 10px;
+      border-radius: 6px;
+      color: #a7f3d0;
+      margin-bottom: 20px;
+      word-break: break-all;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .btn-action {
+      margin-top: auto;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-action:hover:not(:disabled) {
+      background: var(--accent-gold);
+      border-color: var(--accent-gold);
+      color: #000000;
+      box-shadow: 0 0 15px var(--accent-gold-glow);
+    }
+
+    .btn-action.active-btn {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: var(--accent-green);
+      color: #34d399;
+      cursor: default;
+    }
+
+    .btn-action:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Notification Banner */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #10b981;
+      color: #ffffff;
+      padding: 16px 28px;
+      border-radius: 14px;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 9999;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-icon {
+      font-size: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    /* Footer buttons */
+    .nav-actions {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      animation: fadeInUp 0.8s ease-out 0.8s both;
+    }
+
+    .btn-nav {
+      font-family: 'Outfit', sans-serif;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-nav-primary {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #000000;
+      box-shadow: 0 4px 15px var(--accent-gold-glow);
+    }
+
+    .btn-nav-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--accent-gold-glow);
+    }
+
+    .btn-nav-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    .btn-nav-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Keyframes */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="eyebrow">Interactive Admin Tool</div>
+      <h1>Greenland Poster Comparison</h1>
+      <p class="header-desc">Resolve the poster controversy and easily set the correct box office poster for Greenland (2020) on your live tribute site.</p>
+    </header>
+
+    <section class="qa-section">
+      <div class="qa-grid">
+        <div class="qa-card">
+          <h3>Why were there two Greenland movies?</h3>
+          <p>
+            The confusion arose because Gerard Butler has **two projects** bearing the Greenland name:<br>
+            1. <strong>Greenland (2020)</strong>: The highly successful original sci-fi disaster thriller where he plays <em>John Garrity</em> as a family struggles to survive a cataclysmic comet.<br>
+            2. <strong>Greenland: Migration (Sequel)</strong>: The upcoming highly anticipated theatrical sequel, scheduled to begin production. You previously had both entries in your list, which caused duplicate entries. We have safely streamlined the site to display only the original, completed **Greenland (2020)**.
+          </p>
+        </div>
+        <div class="qa-card">
+          <h3>What are the poster differences?</h3>
+          <p>
+            - <strong>poster_greenland.jpg</strong>: The active poster image loaded by <code>films.html</code>.<br>
+            - <strong>poster_greenland_migration.jpg</strong>: The promotional art/poster for the upcoming sequel, which was accidentally set as the default on some pages.<br>
+            - <strong>User Screenshots</strong>: The four screenshots uploaded during your feedback representing the box office and original promotional posters that you want active.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="section-title">
+      <span></span> Available Poster Library <span></span>
+    </h2>
+
+    <div class="poster-grid" id="posterGrid">
+      
+      <!-- Current Active Greenland Poster -->
+      <div class="poster-card active" id="card-poster_greenland">
+        <div class="badge badge-active">Active Poster</div>
+        <div class="poster-img-container">
+          <img src="img/poster_greenland.jpg" alt="Active Greenland Poster" id="img-poster_greenland">
+        </div>
+        <div class="poster-details">
+          <h4>Active Greenland Poster</h4>
+          <div class="meta">Currently shown on Site</div>
+          <div class="file-path">img/poster_greenland.jpg</div>
+          <button class="btn-action active-btn" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Currently Active
+          </button>
+        </div>
+      </div>
+
+      <!-- User Screenshot 1 -->
+      <div class="poster-card" id="card-user_shot_1">
+        <div class="badge badge-source">Box Office Concept 1</div>
+        <div class="poster-img-container">
+          <img src="img/user_shot_1.png" alt="User Screenshot 1">
+        </div>
+        <div class="poster-details">
+          <h4>Original Poster (Gold Theme)</h4>
+          <div class="meta">Original Box Office Release</div>
+          <div class="file-path">img/user_shot_1.png</div>
+          <button class="btn-action" onclick="setPoster('user_shot_1.png')">
+            Set as Active Poster
+          </button>
+        </div>
+      </div>
+
+      <!-- User Screenshot 2 -->
+      <div class="poster-card" id="card-user_shot_2">
+        <div class="badge badge-source">Box Office Concept 2</div>
+        <div class="poster-img-container">
+          <img src="img/user_shot_2.png" alt="User Screenshot 2">
+        </div>
+        <div class="poster-details">
+          <h4>Original Poster (Green Theme)</h4>
+          <div class="meta">Alternative International Cover</div>
+          <div class="file-path">img/user_shot_2.png</div>
+          <button class="btn-action" onclick="setPoster('user_shot_2.png')">
+            Set as Active Poster
+          </button>
+        </div>
+      </div>
+
+      <!-- User Screenshot 3 -->
+      <div class="poster-card" id="card-user_shot_3">
+        <div class="badge badge-source">Box Office Concept 3</div>
+        <div class="poster-img-container">
+          <img src="img/user_shot_3.png" alt="User Screenshot 3">
+        </div>
+        <div class="poster-details">
+          <h4>Theatrical Teaser</h4>
+          <div class="meta">Early Marketing Asset</div>
+          <div class="file-path">img/user_shot_3.png</div>
+          <button class="btn-action" onclick="setPoster('user_shot_3.png')">
+            Set as Active Poster
+          </button>
+        </div>
+      </div>
+
+      <!-- User Screenshot 4 -->
+      <div class="poster-card" id="card-user_shot_4">
+        <div class="badge badge-source">Box Office Concept 4</div>
+        <div class="poster-img-container">
+          <img src="img/user_shot_4.png" alt="User Screenshot 4">
+        </div>
+        <div class="poster-details">
+          <h4>Apocalypse Landscape</h4>
+          <div class="meta">Landscape Backdrop / IMAX Cover</div>
+          <div class="file-path">img/user_shot_4.png</div>
+          <button class="btn-action" onclick="setPoster('user_shot_4.png')">
+            Set as Active Poster
+          </button>
+        </div>
+      </div>
+
+      <!-- Greenland Migration Sequel Poster -->
+      <div class="poster-card" id="card-poster_greenland_migration">
+        <div class="badge badge-file">Sequel Promo Art</div>
+        <div class="poster-img-container">
+          <img src="img/poster_greenland_migration.jpg" alt="Greenland Migration Sequel Poster">
+        </div>
+        <div class="poster-details">
+          <h4>Greenland: Migration</h4>
+          <div class="meta">Sequel Announcement Art</div>
+          <div class="file-path">img/poster_greenland_migration.jpg</div>
+          <button class="btn-action" onclick="setPoster('poster_greenland_migration.jpg')">
+            Set as Active Poster
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="nav-actions">
+      <a href="/films" class="btn-nav btn-nav-primary">← Go to Films Directory</a>
+      <a href="/" class="btn-nav btn-nav-secondary">Main Fan Dashboard</a>
+    </div>
+  </div>
+
+  <!-- Dynamic Notification -->
+  <div class="toast" id="toast">
+    <div class="toast-icon">✓</div>
+    <span id="toastMessage">Poster successfully updated!</span>
+  </div>
+
+  <script>
+    async function setPoster(imageName) {
+      const btn = event.target;
+      const originalText = btn.innerText;
+      btn.innerText = "Applying changes...";
+      btn.disabled = true;
+
+      try {
+        const response = await fetch('/api/admin/set-poster', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            source: imageName,
+            target: 'poster_greenland.jpg'
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          // Success Feedback
+          showToast(`Poster set to ${imageName} successfully!`);
+          
+          // Dynamically refresh active card styling
+          document.querySelectorAll('.poster-card').forEach(card => {
+            card.classList.remove('active');
+            const badge = card.querySelector('.badge');
+            if (badge && badge.classList.contains('badge-active')) {
+              // revert the original badge text/class depending on source
+              if (card.id === 'card-poster_greenland_migration') {
+                badge.className = 'badge badge-file';
+                badge.innerText = 'Sequel Promo Art';
+              } else {
+                badge.className = 'badge badge-source';
+                badge.innerText = card.id.replace('card-user_shot_', 'Box Office Concept ');
+              }
+            }
+            
+            const cardBtn = card.querySelector('.btn-action');
+            if (cardBtn) {
+              cardBtn.className = 'btn-action';
+              cardBtn.removeAttribute('disabled');
+              cardBtn.innerHTML = 'Set as Active Poster';
+            }
+          });
+
+          // Refresh the active poster thumbnail and state
+          const activeImg = document.getElementById('img-poster_greenland');
+          // Add cachebuster to prevent browser image caching
+          activeImg.src = 'img/poster_greenland.jpg?t=' + new Date().getTime();
+          
+          // Highlight the clicked card as active
+          const selectedCard = document.getElementById(`card-${imageName.replace('.png', '').replace('.jpg', '')}`);
+          if (selectedCard) {
+            selectedCard.classList.add('active');
+            const badge = selectedCard.querySelector('.badge');
+            if (badge) {
+              badge.className = 'badge badge-active';
+              badge.innerText = 'Active Poster';
+            }
+            const cardBtn = selectedCard.querySelector('.btn-action');
+            if (cardBtn) {
+              cardBtn.className = 'btn-action active-btn';
+              cardBtn.setAttribute('disabled', 'true');
+              cardBtn.innerHTML = `
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Currently Active
+              `;
+            }
+          }
+          
+          // Also set the primary card active
+          const primaryCard = document.getElementById('card-poster_greenland');
+          primaryCard.classList.add('active');
+
+        } else {
+          showToast(data.error || 'Failed to update poster.', true);
+          btn.innerText = originalText;
+          btn.disabled = false;
+        }
+      } catch (error) {
+        showToast('Connection error. Is backend server running?', true);
+        btn.innerText = originalText;
+        btn.disabled = false;
+      }
+    }
+
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+      const toastIcon = toast.querySelector('.toast-icon');
+      
+      toastMessage.innerText = message;
+      
+      if (isError) {
+        toast.style.background = '#ef4444';
+        toast.style.boxShadow = '0 10px 25px rgba(239, 68, 68, 0.3)';
+        toastIcon.innerText = '✗';
+      } else {
+        toast.style.background = '#10b981';
+        toast.style.boxShadow = '0 10px 25px rgba(16, 185, 129, 0.3)';
+        toastIcon.innerText = '✓';
+      }
+      
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
